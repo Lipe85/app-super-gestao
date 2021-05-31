@@ -3,11 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SiteContato;
 
 class ContatoController extends Controller
 {
     public function contato(Request $request){
-        dd($request);
-        return view('site.contato');
+        
+
+        return view('site.contato', ['titulo'=> 'Contato - teste']);
+
     }
+
+    public function salvar(Request $request){
+
+        //Validação de campos do formúlario
+        $request->validate([
+            'nome'=>'required',
+            'telefone'=>'required',
+            'email'=>'required',
+            'motivo_contato'=>'required',
+            'mensagem'=>'required'
+        ]);
+
+        //SiteContato::create($request->all());
+
+    }
+
+
+
 }
