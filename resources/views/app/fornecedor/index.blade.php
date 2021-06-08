@@ -2,11 +2,10 @@
 
 {{--Fica o comentário que será descartado pelo interpretador blade--}}
 
-{{-- @dd($fornecedores) --}}
+{{-- $fornecedores[1]['nome'] --}}
 
 @isset($fornecedores)
-
-   @forelse($fornecedores as $indice => $fornecedor)
+   @foreach($fornecedores as $indice => $fornecedor)
         Fornecedor: {{ $fornecedor['nome'] }}
         <br />
         Status: {{ $fornecedor['status'] }}
@@ -15,7 +14,6 @@
         <br />
         Telefone: {{ $fornecedor['ddd'] ?? ''}} {{ $fornecedor['telefone'] ?? ''}}
         <hr />
-    @endforelse
+    @endforeach
 @endisset
-
     
